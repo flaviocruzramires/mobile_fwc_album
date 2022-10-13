@@ -8,8 +8,8 @@ class SplashPresenterImpl implements SplashPresenter {
   @override
   Future<void> checkLogin() async {
     _view.showloader();
-    await Future.delayed(const Duration(seconds: 10));
-    _view.logged(true);
+    await Future.delayed(const Duration(seconds: 3));
+    _view.logged(false);
   }
 
   @override
