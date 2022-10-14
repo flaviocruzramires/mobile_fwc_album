@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
+import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
+import 'package:fwc_album_app/app/core/ui/widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,6 +19,71 @@ class _LoginPageState extends State<LoginPage> {
       body: Form(
         child: Container(
           padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/background_login.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: CustomScrollView(
+            slivers: [
+              SliverList(
+                  delegate: SliverChildListDelegate.fixed([
+                SizedBox(
+                  height: MediaQuery.of(context).size.height *
+                      (MediaQuery.of(context).size.width > 450 ? 30 : .25),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Center(
+                      child:
+                          Text('Login', style: context.textStyles.titleWhite)),
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      label: Text('email')),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                    decoration: const InputDecoration(
+                        floatingLabelBehavior: FloatingLabelBehavior.never,
+                        label: Text('senha'))),
+                const SizedBox(
+                  height: 10,
+                ),
+                Button(
+                  width: MediaQuery.of(context).size.height * .9,
+                  onPressed: () {
+                    //widget.presenter.checkLogin();
+                  },
+                  style: ButtonStyles.i.yellowButton,
+                  labelStyle: TextStyles.i.textPrimaryFontBold,
+                  label: 'Logar',
+                )
+              ])),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Text.rich(
+                      style: context.textStyles.textSecondaryFontMedium
+                          .copyWith(color: Colors.white),
+                      TextSpan(text: 'Não possui uma conta?  ', children: [
+                        TextSpan(
+                            text: 'Cadastre-se',
+                            style: context.textStyles.textSecondaryFontMedium
+                                .copyWith(color: Colors.yellow)),
+                      ]),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

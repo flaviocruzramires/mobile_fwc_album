@@ -44,6 +44,12 @@ class TextStyles {
 
   TextStyle get labelTextField =>
       textSecondaryFontRegular.copyWith(color: ColorsApp.i.greyDark);
+
+  TextStyle get titleWhite =>
+      textPrimaryFontBold.copyWith(fontSize: 22, color: Colors.white);
+
+  TextStyle get subtitleWhite =>
+      textPrimaryFontBold.copyWith(fontSize: 18, color: Colors.white);
 }
 
 extension TextStylesExtension on BuildContext {
