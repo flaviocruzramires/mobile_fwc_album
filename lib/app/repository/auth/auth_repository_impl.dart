@@ -26,13 +26,15 @@ class AuthRepositoryImpl implements AuthRepository {
           'password': password,
         },
       );
-      final accessToken = result.data('access_Token');
+      final accessToken = result.data['access_token'];
       if (accessToken == null) {
         throw UnauthorizedExceptions();
       }
       return accessToken;
     } on DioError catch (e, s) {
       log('Erro ao fazer login', error: e, stackTrace: s);
+      print(e);
+      print(s);
       if (e.response?.statusCode == 401) {
         throw UnauthorizedExceptions();
       }

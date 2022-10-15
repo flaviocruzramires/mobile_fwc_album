@@ -1,3 +1,4 @@
+import 'package:fwc_album_app/app/pages/splash/splash_page.dart';
 import 'package:fwc_album_app/app/repository/auth/auth_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,16 +12,12 @@ class LoginServiceImpl implements LoginService {
   });
 
   @override
-  Future<void> execute({
-    required String email,
-    required String password,
-  }) async {
-    final accessToken = await authRepository.login(
-      email: email,
-      password: password,
-    );
-
+  Future<void> execute(
+      {required String email, required String password}) async {
+    final accessToken =
+        await authRepository.login(email: email, password: password);
     final sp = await SharedPreferences.getInstance();
-    sp.setString('acessToken', accessToken);
+    sp.setString('access', accessToken);
+    //throw UnimplementedError();
   }
 }
