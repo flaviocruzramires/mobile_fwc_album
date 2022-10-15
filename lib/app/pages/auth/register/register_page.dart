@@ -135,7 +135,7 @@ class _RegisterPageState extends RegisterViewImpl {
               },
               style: ButtonStyles.i.primaryButton,
               labelStyle: TextStyles.i.textPrimaryFontBold,
-              label: 'Cadastrar',
+              label: 'Cadastrar.',
             )
           ]),
         ),
