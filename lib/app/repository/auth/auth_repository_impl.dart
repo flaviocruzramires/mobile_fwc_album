@@ -10,7 +10,7 @@ import './auth_repository.dart';
 class AuthRepositoryImpl implements AuthRepository {
   final CustomDio dio;
 
-  AuthRepositoryImpl({required this.dio});
+  const AuthRepositoryImpl({required this.dio});
 
   @override
   Future<String> login({required String email, required String password}) {
