@@ -17,7 +17,7 @@ class LoginServiceImpl implements LoginService {
     final accessToken =
         await authRepository.login(email: email, password: password);
     final sp = await SharedPreferences.getInstance();
-    sp.setString('access', accessToken);
+    sp.setString('accessToken', accessToken);
     //throw UnimplementedError();
   }
 }
