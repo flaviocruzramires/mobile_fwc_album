@@ -35,7 +35,7 @@ class _LoginPageState extends LoginViewImpl {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.primary,
-      resizeToAvoidBottomInset: false,
+      //sresizeToAvoidBottomInset: false,
       body: Form(
         key: formKey,
         child: Container(

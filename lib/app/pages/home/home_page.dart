@@ -4,13 +4,24 @@ import 'package:fwc_album_app/app/core/ui/styles/button_styles.dart';
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
 import 'package:fwc_album_app/app/core/ui/styles/text_styles.dart';
 import 'package:fwc_album_app/app/core/ui/widgets/button.dart';
+import 'package:fwc_album_app/app/pages/home/presenter/home_presenter.dart';
+import 'package:fwc_album_app/app/pages/home/view/home_view_impl.dart';
 import 'package:fwc_album_app/app/pages/home/widgets/status_tile.dart';
 import 'package:fwc_album_app/app/pages/home/widgets/sticker_percent_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  final HomePresenter presenter;
+  const HomePage({
+    super.key,
+    required this.presenter,
+  });
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends HomeViewImpl {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -104,4 +115,7 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  void showLoader() {}
 }

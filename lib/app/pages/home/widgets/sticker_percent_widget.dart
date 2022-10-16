@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import 'package:fwc_album_app/app/core/ui/styles/colors_app.dart';
@@ -35,10 +37,13 @@ class StickerPercentWidget extends StatelessWidget {
         SizedBox(
           width: 110,
           height: 110,
-          child: CircularProgressIndicator(
-            value: percentual / 100,
-            color: Colors.white,
-            strokeWidth: 5,
+          child: Transform.rotate(
+            angle: 100,
+            child: CircularProgressIndicator(
+              value: percentual / 100,
+              color: Colors.white,
+              strokeWidth: 5,
+            ),
           ),
         ),
       ],
