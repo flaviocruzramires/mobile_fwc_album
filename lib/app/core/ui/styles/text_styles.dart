@@ -50,6 +50,9 @@ class TextStyles {
 
   TextStyle get subtitleWhite =>
       textPrimaryFontBold.copyWith(fontSize: 18, color: Colors.white);
+
+  TextStyle get subtitlePrimary =>
+      textPrimaryFontBold.copyWith(fontSize: 18, color: ColorsApp.i.primary);
 }
 
 extension TextStylesExtension on BuildContext {
